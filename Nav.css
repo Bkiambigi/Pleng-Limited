@@ -1,0 +1,147 @@
+/* Nav */
+header {
+    position: fixed;
+    width: 100%;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(15, 15, 15);
+    padding: 10px 15px;
+    display: block;
+    font-weight: 400;
+    position: relative;
+   
+}
+
+nav ul li a::before, nav ul li a::after {
+    content: '';
+    position: absolute;
+    background: rgb(15, 15, 15);
+    transition: all 0.4s ease;
+}
+
+nav ul li a::before {
+    width: 0;
+    height: 2px;
+    top: 0;
+    left: 0;
+}
+
+nav ul li a::after {
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a span {
+    position: relative;
+}
+
+nav ul li a span::before, nav ul li a span::after {
+    content: '';
+    position: absolute;
+    background: rgb(15, 15, 15);
+    transition: all 0.4s ease;
+}
+
+nav ul li a span::before {
+    width: 2px;
+    height: 0;
+    top: 0;
+    left: 0;
+}
+
+nav ul li a span::after {
+    width: 2px;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+
+nav ul li a:hover span::before {
+    height: 100%;
+}
+
+nav ul li a:hover span::after {
+    height: 100%;
+}
+
+/* Exclude logo from animation */
+nav ul li.logo a::before,
+nav ul li.logo a::after,
+nav ul li.logo a span::before,
+nav ul li.logo a span::after {
+    content: none;
+}
+
+nav ul li.logo img {
+    height: 50px;
+}
+
+nav ul li.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-width: 200px;
+    z-index: 1;
+    flex-direction: column;
+}
+
+nav ul li.dropdown .dropdown-content a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-align: left;
+}
+
+nav ul li.dropdown:hover .dropdown-content {
+    display: flex;
+    
+}
+
+.hide {
+    transform: translateY(-100%);
+}
+
+.header {
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity;
+    background-color: transparent;
+}
+
+.header.hide {
+    opacity: 0;
+}
+
+.header.scrolled {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 87%;
+}
